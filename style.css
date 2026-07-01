@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #111;
+  color: white;
+}
+
+header {
+  padding: 10px;
+  text-align: center;
+  background: #000;
+  position: sticky;
+  top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  background: #222;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  margin-top: 5px;
+}
+
+/* tablet */
+@media(min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* desktop */
+@media(min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
