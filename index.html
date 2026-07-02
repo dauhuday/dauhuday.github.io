@@ -4,41 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intro</title>
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="music-player/player.css">
 </head>
 
-<div id="music-root"></div>
-
-<script>
-  fetch("music-player/player.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("music-root").innerHTML = data;
-
-      const script = document.createElement("script");
-      script.src = "music-player/player.js";
-      document.body.appendChild(script);
-    });
-</script>
-
 <body class="intro">
+
+  <!-- 🎧 MUSIC PLAYER (NHÚNG TRỰC TIẾP) -->
+  <div class="music-player">
+    <button id="playBtn">▶</button>
+    <div class="music-info">
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music/doi-mat-ke-tinh-si.mp3" type="audio/mpeg">
+  </audio>
 
   <!-- 🌌 SKY BACKGROUND -->
   <div class="sky">
 
-    <!-- ⭐ STAR LAYERS -->
     <div class="stars layer1"></div>
     <div class="stars layer2"></div>
     <div class="stars layer3"></div>
 
-    <!-- 🌌 EFFECTS -->
     <div class="nebula"></div>
     <div class="dust"></div>
 
-    <!-- ☄️ SHOOTING STAR CONTAINER (JS sẽ tạo bên trong) -->
     <div class="shooting-container"></div>
-
   </div>
 
   <!-- ✨ CONTENT -->
@@ -48,6 +43,9 @@
     <div class="loading-bar"></div>
   </div>
 
+  <!-- SCRIPT -->
   <script src="script.js"></script>
+  <script src="music-player/player.js"></script>
+
 </body>
 </html>
