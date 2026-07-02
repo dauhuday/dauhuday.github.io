@@ -5,7 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intro</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="music-player/player.css">
 </head>
+
+<div id="music-root"></div>
+
+<script>
+  fetch("music-player/player.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("music-root").innerHTML = data;
+
+      const script = document.createElement("script");
+      script.src = "music-player/player.js";
+      document.body.appendChild(script);
+    });
+</script>
 
 <body class="intro">
 
