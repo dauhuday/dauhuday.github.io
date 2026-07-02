@@ -161,28 +161,47 @@ body.intro {
 
 /* logo */
 .logo {
-  font-family: 'HelloCChristmas', serif;
-  font-weight: 500;
-  font-size: 60px;
+  font-family: 'HelloCChristmas';
+  text-align: center;
+  line-height: 1.1;
+  margin: 0;
+
+  position: fixed; /* 🔥 đổi absolute -> fixed */
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10; /* đảm bảo nổi lên trên */
+}
+
+/* chữ to */
+.logo .big {
+  display: block;
+  font-size: 80px;
   letter-spacing: 2px;
-  line-height: 1.2;
-
-  color: #CAA9F3;
-
-  text-shadow:
-    0 0 5px #CAA9F3,
-    0 0 15px #206ABC,
-    0 0 30px #CAA9F3;
 }
 
-/* loading bar */
-.loading-bar {
-  width: 0%;
-  height: 4px;
-  background: linear-gradient(90deg, #CAA9F3, #206ABC);
-  margin-top: 20px;
-  animation: load 3s linear forwards;
+/* chữ nhỏ */
+.logo .small {
+  display: block;
+  font-size: 28px;
+  opacity: 0.8;
 }
+
+@media (max-width: 768px) {
+  .logo {
+    top: 10%;
+  }
+
+  .logo .big {
+    font-size: 48px;
+  }
+
+  .logo .small {
+    font-size: 20px;
+  }
+}
+
 /* ===================== */
 /* 🏠 HOME PAGE */
 /* ===================== */
