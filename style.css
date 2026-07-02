@@ -161,12 +161,11 @@ body.intro {
 .logo {
   font-family: 'HelloCChristmas';
   text-align: center;
-
-  line-height: 0.85; /* 🔥 giảm mạnh khoảng cách */
+  line-height: 0.85;
   margin: 0;
 
   position: fixed;
-  top: 8%;
+  top: 10%; /* dùng 10% cho cả mobile + PC cho ổn định */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -204,10 +203,6 @@ body.intro {
 }
 
 @media (max-width: 768px) {
-  .logo {
-    top: 10%;
-  }
-
   .logo .big {
     font-size: 40px;
   }
@@ -215,12 +210,10 @@ body.intro {
   .logo .small {
     font-size: 20px;
   }
-}
 
-@media (max-width: 768px) {
   .subtitle {
-    font-size: 18px;
-    top: calc(10% + 160px);
+    font-size: 16px;
+    transform: translate(-50%, 120px); /* 🔥 giảm khoảng cách */
   }
 }
 /* ===================== */
