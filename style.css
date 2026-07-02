@@ -6,6 +6,7 @@
   src: url('fonts/1FTV-Hello-Christmas.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap; /* 🔥 thêm dòng này */
 }
 
 /* ===================== */
@@ -144,9 +145,6 @@ body {
 
 body.intro {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
   position: relative;
 }
@@ -163,15 +161,15 @@ body.intro {
 .logo {
   font-family: 'HelloCChristmas';
   text-align: center;
-  line-height: 1.1;
+
+  line-height: 0.85; /* 🔥 giảm mạnh khoảng cách */
   margin: 0;
 
-  position: fixed; /* 🔥 đổi absolute -> fixed */
+  position: fixed;
   top: 8%;
   left: 50%;
   transform: translateX(-50%);
-
-  z-index: 10; /* đảm bảo nổi lên trên */
+  z-index: 10;
 }
 
 /* chữ to */
@@ -184,8 +182,25 @@ body.intro {
 /* chữ nhỏ */
 .logo .small {
   display: block;
-  font-size: 28px;
+  font-size: 40px;
   opacity: 0.8;
+}
+
+.subtitle {
+  font-family: 'HelloCChristmas'; /* cùng font */
+  font-size: 28px; /* nhỏ hơn */
+  opacity: 0.85;
+
+  text-align: center;
+
+  position: fixed;
+  top: calc(8% + 210px); /* 🔥 nằm dưới logo */
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  letter-spacing: 1px;
 }
 
 @media (max-width: 768px) {
@@ -194,7 +209,7 @@ body.intro {
   }
 
   .logo .big {
-    font-size: 48px;
+    font-size: 80px;
   }
 
   .logo .small {
@@ -202,6 +217,12 @@ body.intro {
   }
 }
 
+@media (max-width: 768px) {
+  .subtitle {
+    font-size: 18px;
+    top: calc(10% + 160px);
+  }
+}
 /* ===================== */
 /* 🏠 HOME PAGE */
 /* ===================== */
