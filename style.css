@@ -154,7 +154,11 @@ body {
 body.intro {
   height: 100svh;
 }
-
+@media (max-width: 768px) {
+  .intro-container {
+    padding-top: calc(8vh + 30px);
+  }
+}
 /* CONTAINER */
 .intro-container {
   position: relative;
