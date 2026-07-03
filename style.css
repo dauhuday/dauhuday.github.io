@@ -177,52 +177,41 @@ body.intro {
 /* ===================== */
 .logo {
   font-family: 'HelloCChristmas';
-  line-height: 0.85;
+  line-height: 0.8;
   margin: 0;
-  white-space: nowrap;
 }
 
-/* 2 chữ chính */
+/* chữ lớn */
 .logo .big {
   display: block;
-  font-size: 13.5vw; /* 🔥 tăng lên để full */
+
+  font-size: clamp(42px, 20vw, 90px);
+  /* 🔥 mobile = 20vw (RẤT TO)
+     🔥 PC = max 90px */
+
+  letter-spacing: 0.5vw;
   white-space: nowrap;
-  letter-spacing: -0.5vw; /* 🔥 ép sát chữ */
 }
 
-/* chữ "trong" */
+/* chữ nhỏ */
 .logo .small {
   display: block;
-  font-size: 6.75vw; /* = 1/2 */
+
+  font-size: clamp(21px, 10vw, 45px); /* = 1/2 */
 }
 
-/* SUBTITLE */
+/* subtitle */
 .subtitle {
   font-family: 'HelloCChristmas';
-  font-size: 4vw;
-  margin-bottom: 1vh; /* 🔥 kéo subtitle lên */
 
-  margin-top: 0;/* 🔥 sát chữ trên */
-  line-height: 1.1;
-  opacity: 0.85;
+  font-size: clamp(14px, 5.2vw, 22px);
+
+  margin: 0;
+  margin-top: 4px;
+
   white-space: nowrap;
 }
 
-@media (min-width: 768px) {
-  .logo .big {
-    font-size: 80px; /* 🔥 fix size PC */
-    letter-spacing: -2px;
-  }
-
-  .logo .small {
-    font-size: 40px;
-  }
-
-  .subtitle {
-    font-size: 30px;
-    white-space: normal;
-  }
-}
 
 /* ===================== */
 /* ✨ TWINKLE */
