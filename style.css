@@ -149,14 +149,14 @@ body {
 }
 
 /* ===================== */
-/* 🔥 INTRO FIX (QUAN TRỌNG) */
+/* 🔥 INTRO FIX */
 /* ===================== */
 body.intro {
   height: 100vh;
   overflow: hidden;
 }
 
-/* 🔥 FLEX CENTER */
+/* CONTAINER */
 .intro-container {
   position: relative;
   z-index: 2;
@@ -165,41 +165,44 @@ body.intro {
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
 
-  padding-top: 12vh;
+  padding-top: 8vh; /* 🔥 giảm khoảng cách */
   text-align: center;
   animation: fadeIn 2s ease;
 }
 
-/* LOGO */
+/* ===================== */
+/* 🔥 LOGO FIX CHUẨN */
+/* ===================== */
 .logo {
   font-family: 'HelloCChristmas';
-  line-height: 0.9;
+  line-height: 1;
   margin: 0;
 }
 
-/* TEXT SCALE AUTO */
+/* 2 chữ chính */
 .logo .big {
   display: block;
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(42px, 11vw, 90px);
+  white-space: nowrap; /* 🔥 không xuống dòng */
 }
 
+/* chữ "trong" */
 .logo .small {
   display: block;
-  font-size: clamp(20px, 4vw, 40px);
+  font-size: clamp(20px, 5.5vw, 45px);
   opacity: 0.8;
 }
 
-/* 🔥 SUBTITLE FIX CHUẨN */
+/* SUBTITLE */
 .subtitle {
   font-family: 'HelloCChristmas';
-  font-size: clamp(14px, 3.5vw, 28px);
+  font-size: clamp(14px, 3.8vw, 24px);
 
-  margin-top: 10px; /* nằm sát dưới logo */
+  margin-top: 6px; /* 🔥 sát chữ trên */
+  line-height: 1.2;
   opacity: 0.85;
-  letter-spacing: 1px;
 }
 
 /* ===================== */
@@ -217,54 +220,6 @@ body.intro {
   0% { opacity: 0.1; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1.6); }
   100% { opacity: 0.3; transform: scale(1); }
-}
-
-/* ===================== */
-/* 🏠 HOME */
-/* ===================== */
-header {
-  padding: 10px;
-  text-align: center;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(5px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  padding: 10px;
-}
-
-.card {
-  background: rgba(34,34,34,0.6);
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  padding: 10px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.03);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* ===================== */
-/* 📱 RESPONSIVE GRID */
-/* ===================== */
-@media (min-width: 600px) {
-  .grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (min-width: 900px) {
-  .grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 /* ===================== */
