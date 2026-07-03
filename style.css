@@ -10,15 +10,19 @@
 }
 
 /* ===================== */
-/* 🌐 GLOBAL (FIX SCROLL) */
+/* 🌐 GLOBAL (FIX SCROLL ABSOLUTE) */
 /* ===================== */
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden; /* 🔥 khóa scroll */
+  overflow: hidden;
+  overscroll-behavior: none; /* 🔥 chặn bounce iOS */
 }
 
 body {
+  position: fixed; /* 🔥 khóa cứng luôn */
+  inset: 0;
+
   font-family: Arial;
   color: white;
 
@@ -29,13 +33,14 @@ body {
 }
 
 /* ===================== */
-/* 🌌 SKY BACKGROUND (FIX ROOT LAYER) */
+/* 🌌 SKY BACKGROUND */
 /* ===================== */
 .sky {
   position: fixed;
-  inset: 0; /* 🔥 thay top/left/width/height */
+  inset: 0;
   overflow: hidden;
   z-index: 0;
+  touch-action: none; /* 🔥 chặn gesture scroll */
 }
 
 .stars {
@@ -73,7 +78,7 @@ body {
 }
 
 /* ===================== */
-/* ☄️ SHOOTING STAR */
+/* ☄️ SHOOTING STAR (FIX OVERFLOW) */
 /* ===================== */
 .shooting-star {
   position: absolute;
@@ -87,16 +92,20 @@ body {
 }
 
 @keyframes shoot {
-  0% { opacity: 0; transform: translate(0, 0) rotate(45deg); }
+  0% {
+    opacity: 0;
+    transform: translate(-100px, -100px) rotate(45deg);
+  }
   10% { opacity: 1; }
-  100% { opacity: 0; transform: translate(800px, 800px) rotate(45deg); }
+  100% {
+    opacity: 0;
+    transform: translate(100vw, 100vh) rotate(45deg);
+  }
 }
 
 /* ===================== */
-/* 🌌 EFFECTS (FIX CORE BUG) */
+/* 🌌 EFFECTS (FIX OVERFLOW CORE) */
 /* ===================== */
-
-/* ❌ bỏ 200% → dùng scale */
 .nebula,
 .dust {
   position: absolute;
@@ -104,7 +113,7 @@ body {
   width: 100%;
   height: 100%;
 
-  transform: scale(2); /* 🔥 thay cho 200% */
+  transform: scale(1.5); /* 🔥 giảm từ 2 → 1.5 */
   transform-origin: center;
 
   pointer-events: none;
@@ -125,9 +134,9 @@ body {
 }
 
 @keyframes nebulaMove {
-  0% { transform: scale(2) translate(0, 0); }
-  50% { transform: scale(2.1) translate(5%, 5%); }
-  100% { transform: scale(2) translate(0, 0); }
+  0% { transform: scale(1.5) translate(0, 0); }
+  50% { transform: scale(1.6) translate(5%, 5%); }
+  100% { transform: scale(1.5) translate(0, 0); }
 }
 
 /* dust */
@@ -143,8 +152,8 @@ body {
 }
 
 @keyframes dustMove {
-  from { transform: scale(2) translate(0, 0); }
-  to { transform: scale(2) translate(-200px, -200px); }
+  from { transform: scale(1.5) translate(0, 0); }
+  to { transform: scale(1.5) translate(-200px, -200px); }
 }
 
 /* glow */
@@ -168,7 +177,7 @@ body {
   position: relative;
   z-index: 2;
 
-  height: 100vh;
+  height: 100dvh; /* 🔥 fix mobile viewport */
 
   display: flex;
   flex-direction: column;
@@ -186,6 +195,8 @@ body {
 .logo {
   font-family: 'HelloCChristmas';
   line-height: 1;
+  max-width: 100%;
+  overflow: hidden; /* 🔥 chống tràn */
 }
 
 .logo .big {
@@ -238,10 +249,6 @@ body {
 @media (max-width: 768px) {
   .intro-container {
     padding-top: 10vh;
-  }
-
-  .logo {
-    line-height: 1;
   }
 
   .logo span {
