@@ -237,7 +237,7 @@ body {
 /* ===================== */
 @media (max-width: 768px) {
   .intro-container {
-    padding-top: 6vh;
+    padding-top: 2vh;
   }
 
   .logo {
