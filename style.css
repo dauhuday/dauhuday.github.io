@@ -152,8 +152,7 @@ body {
 /* 🔥 INTRO FIX */
 /* ===================== */
 body.intro {
-  height: 100vh;
-  overflow: hidden;
+  height: 100svh;
 }
 
 /* CONTAINER */
