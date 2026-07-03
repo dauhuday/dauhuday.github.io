@@ -240,3 +240,9 @@ body.intro {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
 }
+
+@media (max-width: 768px) {
+  .intro-container {
+    padding-top: clamp(10vh, 15vh, 18vh);
+  }
+}
