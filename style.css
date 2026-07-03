@@ -254,8 +254,8 @@ body {
   }
 
   .subtitle {
-    font-size: clamp(25px, 5vw, 24px);
-    margin-top: 16px;
+    font-size: clamp(26px, 5vw, 24px);
+    margin-top: 5px;
     white-space: normal;
   }
 }
