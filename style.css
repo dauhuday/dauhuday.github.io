@@ -177,31 +177,32 @@ body.intro {
 /* ===================== */
 .logo {
   font-family: 'HelloCChristmas';
-  line-height: 1;
+  line-height: 0.85;
   margin: 0;
+  white-space: nowrap;
 }
 
 /* 2 chữ chính */
 .logo .big {
   display: block;
-  font-size: clamp(42px, 11vw, 90px);
-  white-space: nowrap; /* 🔥 không xuống dòng */
+  font-size: 12vw; /* 🔥 luôn fit ngang màn hình */
+  white-space: nowrap;
 }
 
 /* chữ "trong" */
 .logo .small {
   display: block;
-  font-size: clamp(20px, 5.5vw, 45px);
+  font-size: 6vw; /* 🔥 đúng 1/2 */
   opacity: 0.8;
 }
 
 /* SUBTITLE */
 .subtitle {
   font-family: 'HelloCChristmas';
-  font-size: clamp(14px, 3.8vw, 24px);
+  font-size: 4vw;
 
-  margin-top: 6px; /* 🔥 sát chữ trên */
-  line-height: 1.2;
+  margin-top: 2px;/* 🔥 sát chữ trên */
+  line-height: 1.1;
   opacity: 0.85;
 }
 
