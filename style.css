@@ -204,7 +204,7 @@ body.intro {
 .subtitle {
   font-family: 'HelloCChristmas';
 
-  font-size: clamp(14px, 5.2vw, 22px);
+  font-size: clamp(30px, 5.2vw, 22px);
 
   margin: 0;
   margin-top: 4px;
