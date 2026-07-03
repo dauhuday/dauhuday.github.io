@@ -185,25 +185,43 @@ body.intro {
 /* 2 chữ chính */
 .logo .big {
   display: block;
-  font-size: 12vw; /* 🔥 luôn fit ngang màn hình */
+  font-size: 13.5vw; /* 🔥 tăng lên để full */
   white-space: nowrap;
+  letter-spacing: -0.5vw; /* 🔥 ép sát chữ */
 }
 
 /* chữ "trong" */
 .logo .small {
   display: block;
-  font-size: 6vw; /* 🔥 đúng 1/2 */
-  opacity: 0.8;
+  font-size: 6.75vw; /* = 1/2 */
 }
 
 /* SUBTITLE */
 .subtitle {
   font-family: 'HelloCChristmas';
   font-size: 4vw;
+  margin-bottom: 1vh; /* 🔥 kéo subtitle lên */
 
-  margin-top: 2px;/* 🔥 sát chữ trên */
+  margin-top: 0;/* 🔥 sát chữ trên */
   line-height: 1.1;
   opacity: 0.85;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .logo .big {
+    font-size: 80px; /* 🔥 fix size PC */
+    letter-spacing: -2px;
+  }
+
+  .logo .small {
+    font-size: 40px;
+  }
+
+  .subtitle {
+    font-size: 30px;
+    white-space: normal;
+  }
 }
 
 /* ===================== */
