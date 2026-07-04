@@ -267,7 +267,7 @@ body {
   margin-top: 10px;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column!important;
   gap: 20px;
 
   align-items: center;
@@ -281,7 +281,7 @@ body {
   border: 2px solid white; /* 🔥 viền trắng */
   border-radius: 0;
 
-  color: white; /* 🔥 chữ trắng luôn */
+  color: white!important; /* 🔥 chữ trắng luôn */
 
   cursor: pointer;
   display: inline-block;
@@ -394,4 +394,15 @@ body {
 .fancy:hover .bottom-key-1,
 .fancy:hover .bottom-key-2 {
   background: black;
+}
+
+@media (hover: none) {
+  .fancy {
+    background: rgba(255,255,255,0.05); /* 👉 luôn có nền nhẹ */
+    border: 2px solid white;
+  }
+
+  .fancy:active {
+    background: #7997E6; /* 👉 khi bấm mới đổi màu */
+  }
 }
