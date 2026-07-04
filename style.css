@@ -259,3 +259,139 @@ body {
     white-space: normal;
   }
 }
+
+/* ===================== */
+/* 🔘 MENU BUTTONS DỌC */
+/* ===================== */
+.menu-buttons {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  align-items: center;
+}
+
+/* ===================== */
+/* ✨ FANCY BUTTON CUSTOM */
+/* ===================== */
+.fancy {
+  background-color: transparent;
+  border: 2px solid white; /* 🔥 viền trắng */
+  border-radius: 0;
+
+  color: white; /* 🔥 chữ trắng luôn */
+
+  cursor: pointer;
+  display: inline-block;
+
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  padding: 1em 2em;
+  position: relative;
+
+  text-align: center;
+  text-decoration: none;
+
+  transition: all 0.3s ease-in-out;
+  font-size: 14px;
+
+  min-width: 180px;
+}
+
+/* thanh ngang bên trái */
+.fancy::before {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background: white; /* 🔥 trắng ban đầu */
+  top: 50%;
+  left: 15px;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+}
+
+/* text */
+.fancy .text {
+  padding-left: 25px;
+  display: block;
+  text-align: left;
+  color: white;
+  transition: 0.3s;
+}
+
+/* các đoạn đứt */
+.fancy .top-key,
+.fancy .bottom-key-1,
+.fancy .bottom-key-2 {
+  background: black; /* 🔥 trắng ban đầu */
+  position: absolute;
+  height: 2px;
+  transition: 0.3s;
+}
+
+.fancy .top-key {
+  width: 25px;
+  top: -2px;
+  left: 10px;
+}
+
+.fancy .bottom-key-1 {
+  width: 25px;
+  right: 30px;
+  bottom: -2px;
+}
+
+.fancy .bottom-key-2 {
+  width: 10px;
+  right: 10px;
+  bottom: -2px;
+}
+
+/* ===================== */
+/* 🎨 MÀU HOVER RIÊNG */
+/* ===================== */
+.btn1:hover { background: #c6aae9; }
+.btn2:hover { background: #7997E6; }
+.btn3:hover { background: #B37AD4; }
+.btn4:hover { background: #206ABC; }
+
+/* ===================== */
+/* 🔥 HOVER EFFECT */
+/* ===================== */
+.fancy:hover {
+  color: white;
+}
+
+/* line trái chuyển đen */
+.fancy:hover::before {
+  width: 15px;
+  background: black; /* 🔥 chuyển đen */
+}
+
+/* text shift */
+.fancy:hover .text {
+  padding-left: 18px;
+}
+
+/* key biến mất */
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0;
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
+}
+
+/* key chuyển trắng -> đen khi hover */
+.fancy:hover .top-key,
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
+  background: black;
+}
