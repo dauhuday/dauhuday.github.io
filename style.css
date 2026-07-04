@@ -406,3 +406,14 @@ body {
     background: #7997E6; /* 👉 khi bấm mới đổi màu */
   }
 }
+
+@media (max-width: 768px) {
+  .menu-buttons {
+    gap: 28px; /* 🔥 tăng khoảng cách giữa các nút (từ 20 → 28) */
+    margin-top: 5px; /* 🔥 kéo cụm nút lên nhẹ để giảm khoảng trống dưới */
+  }
+
+  .fancy {
+    padding: 1.1em 2em; /* 🔥 tăng chiều cao nút nhẹ → giãn spacing tự nhiên */
+  }
+}
