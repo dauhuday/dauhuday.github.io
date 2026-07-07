@@ -12,30 +12,38 @@
 /* ===================== */
 /* 🌐 GLOBAL (FIX SCROLL) */
 /* ===================== */
-html, body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden; /* 🔥 khóa scroll */
+body.intro {
+  overflow: hidden; /* chỉ khóa scroll ở intro */
+}
+
+body:not(.intro) {
+  overflow: auto; /* các trang khác scroll bình thường */
 }
 
 body {
   font-family: Arial;
   color: white;
 
-  background:
-    radial-gradient(circle at 20% 30%, rgba(202,169,243,0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(32,106,188,0.12), transparent 40%),
-    radial-gradient(ellipse at bottom, #050816 0%, #000000 100%);
+
 }
 
 /* ===================== */
 /* 🌌 SKY BACKGROUND (FIX ROOT LAYER) */
 /* ===================== */
 .sky {
-  position: fixed;
-  inset: 0; /* 🔥 thay top/left/width/height */
+  position: fixed; /* 🔥 cố định background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* luôn phủ toàn màn hình */
   overflow: hidden;
   z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(202,169,243,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(32,106,188,0.12), transparent 40%),
+    linear-gradient(to bottom, #050816 0%, #000000 100%);
 }
 
 .stars {
@@ -104,7 +112,7 @@ body {
   width: 100%;
   height: 100%;
 
-  transform: scale(2); /* 🔥 thay cho 200% */
+  transform: none; /* 🔥 thay cho 200% */
   transform-origin: center;
 
   pointer-events: none;
@@ -121,7 +129,9 @@ body {
     radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent 70%);
 
   filter: blur(80px);
-  animation: nebulaMove 40s linear infinite;
+  background-repeat: no-repeat;
+  background-size: cover; /* 🔥 FIX */
+  /* ❌ bỏ animation */
 }
 
 @keyframes nebulaMove {
@@ -135,11 +145,10 @@ body {
   background-image:
     radial-gradient(1px 1px, rgba(202,169,243,0.25) 1px, transparent 1px),
     radial-gradient(1px 1px, rgba(32,106,188,0.25) 1px, transparent 1px);
-
+    
   background-size: 200px 200px;
   opacity: 0.4;
-
-  animation: dustMove 120s linear infinite;
+  /* ❌ bỏ animation */
 }
 
 @keyframes dustMove {
@@ -416,4 +425,134 @@ body {
   .fancy {
     padding: 1.1em 2em; /* 🔥 tăng chiều cao nút nhẹ → giãn spacing tự nhiên */
   }
+}
+
+header,
+#list,
+#detail {
+  position: relative;
+  z-index: 2;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ===================== */
+/* 🌟 CARD CHARACTER */
+/* ===================== */
+.card {
+  background: linear-gradient(135deg, #CAA9F3 0%, #7997EA 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(11, 21, 94, 0.4);
+  overflow: hidden;
+  width: 220px;
+  margin: 20px;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(179, 122, 212, 0.6);
+}
+
+/* ảnh trong card */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 3px solid #B37AD4;
+}
+
+/* tên nhân vật */
+.card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #0E155E;
+  text-shadow: 0 0 6px #CAA9F3;
+}
+
+/* mô tả */
+.card p {
+  font-size: 14px;
+  margin: 0 10px 10px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* nút trong card */
+.card button {
+  background: #206ABC;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 16px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+  background: #B37AD4;
+  transform: scale(1.1);
+}
+
+/* ===================== */
+/* ✨ ANIMATION */
+/* ===================== */
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+
+#tagFilter {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#tagFilter button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #CAA9F3;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#tagFilter button:hover {
+  background: #7997EA;
+}
+
+#tagFilter button.active {
+  background: #B37AD4;
+  border-color: #B37AD4;
+}
+
+
+#searchBox {
+  position: relative;
+  z-index: 2;
+}
+
+#tagFilter {
+  position: relative;
+  z-index: 2;
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.char-actions button.active {
+  filter: brightness(1.4);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #CAA9F3;
 }

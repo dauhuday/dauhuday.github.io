@@ -1,26 +1,32 @@
-// đảm bảo DOM load xong mới chạy
+let audio;
+let isPlaying = false;
+
 window.addEventListener("DOMContentLoaded", () => {
 
-  const audio = document.getElementById("bgMusic");
+  audio = document.getElementById("bgMusic");
   const playBtn = document.getElementById("playBtn");
 
-  // ❗ nếu không tìm thấy element thì dừng (tránh crash mobile)
+  // ❗ tránh lỗi khi chưa load player
   if (!audio || !playBtn) return;
 
-  // lấy trạng thái lưu
-  let isPlaying = localStorage.getItem("musicPlaying") === "true";
+  // ===== LOAD STATE =====
+  isPlaying = localStorage.getItem("musicPlaying") === "true";
+  const savedTime = parseFloat(localStorage.getItem("musicTime")) || 0;
 
-  // cập nhật UI
+  // set lại thời gian
+  audio.currentTime = savedTime;
+
+  // ===== UI =====
   function updateUI() {
     playBtn.textContent = isPlaying ? "❚❚" : "▶";
   }
 
-  // play
+  // ===== PLAY =====
   function playMusic() {
     audio.volume = 0.5;
 
     audio.play().catch(() => {
-      // mobile chặn thì bỏ qua
+      // mobile có thể chặn
     });
 
     isPlaying = true;
@@ -28,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
     updateUI();
   }
 
-  // pause
+  // ===== PAUSE =====
   function pauseMusic() {
     audio.pause();
     isPlaying = false;
@@ -36,12 +42,19 @@ window.addEventListener("DOMContentLoaded", () => {
     updateUI();
   }
 
-  // click button
+  // ===== BUTTON =====
   playBtn.addEventListener("click", () => {
     isPlaying ? pauseMusic() : playMusic();
   });
 
-  // ✅ FIX MOBILE (rất quan trọng)
+  // ===== LƯU THỜI GIAN =====
+  setInterval(() => {
+    if (!audio.paused) {
+      localStorage.setItem("musicTime", audio.currentTime);
+    }
+  }, 1000);
+
+  // ===== FIX MOBILE AUTO PLAY =====
   ["click", "touchstart"].forEach(event => {
     window.addEventListener(event, () => {
       if (isPlaying && audio.paused) {
@@ -50,13 +63,14 @@ window.addEventListener("DOMContentLoaded", () => {
     }, { once: true });
   });
 
-  // init
-  updateUI();
-
+  // ===== AUTO RESUME =====
   if (isPlaying) {
     setTimeout(() => {
       audio.play().catch(() => {});
     }, 300);
   }
+
+  // ===== INIT =====
+  updateUI();
 
 });

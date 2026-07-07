@@ -4,20 +4,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="music-player/player.css">
 </head>
-
 <body>
 
-<header>
-  <h2>🔥 Character AI</h2>
-</header>
+  
+  <!-- 🌌 SKY BACKGROUND -->
+  <div class="sky">
+    <div class="stars layer1"></div>
+    <div class="stars layer2"></div>
+    <div class="stars layer3"></div>
+    <div class="nebula"></div>
+    <div class="dust"></div>
+    <div class="shooting-container"></div>
+  </div>
 
-<div id="list" class="grid"></div>
+  <!-- 🔍 Search box -->
+  <input type="text" id="searchBox" placeholder="Tìm nhân vật hoặc tag...">
 
-<script src="app.js"></script>
-<script>
-loadCharacters();
-</script>
+  <!-- 🏷️ Tag filter (JS sẽ tự sinh) -->
+  <div id="tagFilter"></div>
 
+  <header>
+    <h2>🔥 Character AI</h2>
+  </header>
+
+  <!-- 📋 Danh sách card -->
+  <div id="list" class="grid"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script>
+    loadCharacters();
+  </script>
+  <script src="script.js"></script>
+
+  <script src="music-player/loadPlayer.js"></script>
 </body>
 </html>

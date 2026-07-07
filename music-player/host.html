@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="../music/doi-mat-ke-tinh-si.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bgMusic");
+
+    // load state
+    const isPlaying = localStorage.getItem("musicPlaying") === "true";
+    const time = parseFloat(localStorage.getItem("musicTime")) || 0;
+
+    audio.currentTime = time;
+
+    if (isPlaying) {
+      audio.play().catch(()=>{});
+    }
+
+    // sync time
+    setInterval(() => {
+      if (!audio.paused) {
+        localStorage.setItem("musicTime", audio.currentTime);
+      }
+    }, 1000);
+
+    // expose control
+    window.playMusic = () => {
+      audio.play();
+      localStorage.setItem("musicPlaying", "true");
+    };
+
+    window.pauseMusic = () => {
+      audio.pause();
+      localStorage.setItem("musicPlaying", "false");
+    };
+  </script>
+</body>
+</html>

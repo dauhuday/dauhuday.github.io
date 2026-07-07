@@ -4,16 +4,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Character</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .char-container {
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid #CAA9F3;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(11,21,94,0.4);
+      backdrop-filter: blur(10px);
+    }
+    .char-container img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain; /* hiển thị full ảnh */
+      border-radius: 16px;
+      margin-bottom: 15px;
+      border: 3px solid #B37AD4;
+      background: rgba(0,0,0,0.3);
+    }
+    .char-container h2 {
+      margin: 10px 0;
+      color: #CAA9F3;
+      text-shadow: 0 0 6px #206ABC;
+      font-size: 24px;
+    }
+    .char-container p {
+      margin: 8px 0;
+      color: #fff;
+      opacity: 0.9;
+      font-size: 15px;
+    }
+    .char-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    .char-actions button {
+      border: none;
+      border-radius: 30px;
+      padding: 10px 22px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-size: 15px;
+    }
+    #likeBtn {
+      background: linear-gradient(135deg, #CAA9F3, #7997EA);
+    }
+    #dislikeBtn {
+      background: linear-gradient(135deg, #206ABC, #B37AD4);
+    }
+    .char-actions button:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+  </style>
+  <link rel="stylesheet" href="music-player/player.css">
 </head>
 
 <body>
+  <!-- 🌌 SKY BACKGROUND -->
+  <div class="sky">
+    <div class="stars layer1"></div>
+    <div class="stars layer2"></div>
+    <div class="stars layer3"></div>
+    <div class="nebula"></div>
+    <div class="dust"></div>
+    <div class="shooting-container"></div>
+  </div>
 
-<div id="detail"></div>
+  <div class="char-container">
+    <div id="detail"></div>
+    <div class="char-actions">
+      <button id="likeBtn">❤️ Thích</button>
+      <button id="dislikeBtn">👎 Không thích</button>
+    </div>
+  </div>
 
-<script src="app.js"></script>
-<script>
-loadCharacterDetail();
-</script>
+  <script src="app.js"></script>
+  <script>
+    loadCharacterDetail();
+  </script>
+  <script src="script.js"></script>
 
+  <script src="music-player/loadPlayer.js"></script>
 </body>
 </html>
