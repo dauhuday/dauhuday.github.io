@@ -556,3 +556,151 @@ html, body {
   transform: scale(1.05);
   box-shadow: 0 0 10px #CAA9F3;
 }
+
+
+
+/* ===================== */
+/* 🔥 SIDEBAR */
+/* ===================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  width: 60px;
+  transition: 0.35s ease;
+
+  background: rgba(10,10,30,0.95);
+  backdrop-filter: blur(12px);
+
+  border-right: 1px solid #CAA9F3;
+  box-shadow: 4px 0 20px rgba(32,106,188,0.4);
+
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* mở rộng */
+.sidebar:has(#toggleSidebar:checked) {
+  width: 220px;
+}
+
+/* ===================== */
+/* 🔘 BURGER */
+/* ===================== */
+#toggleSidebar {
+  display: none;
+}
+
+.burger {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 2000; /* 🔥 fix click */
+}
+
+/* 3 thanh */
+.burger span {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* vị trí ban đầu */
+.burger span:nth-child(1) {
+  transform: translateY(-6px);
+}
+
+.burger span:nth-child(2) {
+  transform: translateY(0);
+}
+
+.burger span:nth-child(3) {
+  transform: translateY(6px);
+}
+
+/* ===================== */
+/* 🔥 ANIMATION X (FIX CHUẨN) */
+/* ===================== */
+.sidebar:has(#toggleSidebar:checked) .burger span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.sidebar:has(#toggleSidebar:checked) .burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar:has(#toggleSidebar:checked) .burger span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* ===================== */
+/* CONTENT */
+/* ===================== */
+.sidebar-content {
+  padding: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* hiện khi mở */
+.sidebar:has(#toggleSidebar:checked) .sidebar-content {
+  opacity: 1;
+}
+
+/* ===================== */
+/* TAG */
+/* ===================== */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-list button {
+  padding: 4px 8px;
+  font-size: 12px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(202,169,243,0.4);
+
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tag-list button:hover {
+  background: #7997EA;
+}
+
+.tag-list button.active {
+  background: #B37AD4;
+}
+
+/* ===================== */
+/* MAIN CONTENT */
+/* ===================== */
+.main-content {
+  margin-left: 60px;
+  transition: 0.35s ease;
+  padding: 20px;
+}
+
+/* khi mở sidebar */
+.sidebar:has(#toggleSidebar:checked) ~ .main-content {
+  margin-left: 220px;
+}

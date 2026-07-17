@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  
   <!-- 🌌 SKY BACKGROUND -->
   <div class="sky">
     <div class="stars layer1"></div>
@@ -19,26 +18,45 @@
     <div class="shooting-container"></div>
   </div>
 
-  <!-- 🔍 Search box -->
-  <input type="text" id="searchBox" placeholder="Tìm nhân vật hoặc tag...">
+  <div class="sidebar">
 
-  <!-- 🏷️ Tag filter (JS sẽ tự sinh) -->
-  <div id="tagFilter"></div>
+    <!-- ✅ INPUT TÁCH RIÊNG -->
+    <input type="checkbox" id="toggleSidebar">
 
-  <header>
-    <h2>🔥 Character AI</h2>
-  </header>
+    <!-- 🔘 NÚT -->
+    <label class="burger" for="toggleSidebar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-  <!-- 📋 Danh sách card -->
-  <div id="list" class="grid"></div>
+    <!-- 📦 CONTENT -->
+    <div class="sidebar-content">
+      <h3>Tags</h3>
+      <div id="tagFilter" class="tag-list"></div>
+    </div>
+
+  </div>
+
+  <!-- 📦 MAIN -->
+  <div class="main-content">
+
+    <!-- 🔍 SEARCH -->
+    <input type="text" id="searchBox" placeholder="Tìm nhân vật hoặc tag...">
+
+    <header>
+      <h2>🔥 Character AI</h2>
+    </header>
+
+    <!-- 📋 LIST -->
+    <div id="list" class="grid"></div>
+
+  </div>
 
   <!-- Scripts -->
   <script src="app.js"></script>
-  <script>
-    loadCharacters();
-  </script>
   <script src="script.js"></script>
-
   <script src="music-player/loadPlayer.js"></script>
+
 </body>
 </html>

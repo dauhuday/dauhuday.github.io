@@ -88,12 +88,15 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="app.js"></script>
   <script>
-    loadCharacterDetail();
+    // Chỉ gọi loadCharacterDetail sau khi initData hoàn tất
+    initData().then(() => {
+      loadCharacterDetail();
+    });
   </script>
   <script src="script.js"></script>
-
   <script src="music-player/loadPlayer.js"></script>
 </body>
 </html>
